@@ -7,6 +7,13 @@ body {
   font-family: Molengo, sans-serif;
 }
 
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
 .container {
   display: grid;
   height: 100vh;
@@ -91,15 +98,14 @@ body {
 input[type="text"] {
   font-size: 1.5em;
   padding: 0.5em;
-  border-radius: 5px;
-  border: 0.5px solid grey;
+  border: 2px solid black;
 }
 
 .form {
   width: 800px;
   height: 450px;
   border: 2px solid black;
-  grid-template-columns: min-content min-content 1fr;
+  grid-template-columns: max-content min-content 1fr;
   grid-template-rows: repeat(4, 1fr);
   grid-template-areas: "firstNameLabel firstNameInput department"
     "lastNameLabel  lastNameInput  department"
@@ -133,8 +139,35 @@ label[for="address"] {
 
 .department {
   grid-area: department;
+  margin: 2em;
+}
+
+.department-list {
+  list-style: none;
+  border: 2px solid black;
+  padding: 0;
+  margin-left: 1em;
+  padding: 0.5em;
+}
+
+#firstName,
+#lastName,
+#address {
+  align-self: center;
+  margin: 1em;
+}
+
+label[for="firstName"],
+label[for="lastName"],
+label[for="address"] {
+  justify-self: end;
+  align-self: center;
+  margin: 1em;
 }
 
 .user-buttons {
   grid-area: buttons;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
