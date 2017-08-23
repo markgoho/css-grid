@@ -7,11 +7,8 @@ body {
   font-family: Molengo, sans-serif;
 }
 
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+.item {
+  outline: 1px solid black;
 }
 
 .container {
@@ -20,13 +17,9 @@ body {
 }
 
 /* Row-Column Example */
-.item {
-  outline: 1px solid black;
-}
-
 .row-column {
-  grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: 5em 1fr 5em;
+  grid-template-columns: 40px 50px 1fr 50px 40px;
+  grid-template-rows: .25fr 100px .75fr;
 }
 
 .row-column .item:nth-child(2n) {
@@ -80,11 +73,9 @@ body {
 
 @media (max-width: 60em) {
   .areas {
-    grid-template-areas: "header header" "main main" "sidebar sidebar"
-      "footer footer";
+    grid-template-areas: "header header" "main main""sidebar sidebar" "footer footer";
   }
 }
-
 /* Form Example */
 
 .user-buttons > button {
@@ -98,76 +89,56 @@ body {
 input[type="text"] {
   font-size: 1.5em;
   padding: 0.5em;
-  border: 2px solid black;
+  border-radius: 5px;
+  border: 0.5px solid grey;
 }
-
 .form {
   width: 800px;
-  height: 450px;
   border: 2px solid black;
+  height: 450px;
   grid-template-columns: max-content min-content 1fr;
   grid-template-rows: repeat(4, 1fr);
   grid-template-areas: "firstNameLabel firstNameInput department"
-    "lastNameLabel  lastNameInput  department"
-    "addressLabel   addressInput   department"
-    "............   buttons        buttons";
+    "lastNameLabel lastNameInput department"
+    "addressLabel addressInput department" ". buttons buttons";
 }
-
 label[for="firstName"] {
   grid-area: firstNameLabel;
+  padding: 3em 1em 1em 1em;
 }
-
 #firstName {
   grid-area: firstNameInput;
+  margin: 1em;
 }
-
 label[for="lastName"] {
   grid-area: lastNameLabel;
+  padding: 3em 1em 1em 1em;
 }
-
 #lastName {
   grid-area: lastNameInput;
+  margin: 1em;
 }
-
 label[for="address"] {
   grid-area: addressLabel;
+  padding: 3em 1em 1em 1em;
 }
-
 #address {
   grid-area: addressInput;
+  margin: 1em;
 }
-
 .department {
   grid-area: department;
-  margin: 2em;
+  margin: 2em 4em 2em 2em;
 }
-
 .department-list {
   list-style: none;
-  border: 2px solid black;
-  padding: 0;
-  margin-left: 1em;
-  padding: 0.5em;
+  border: 0.5px solid #605d5d;
+  border-radius: 0.5em;
+  padding: 0.25em 0 8.5em 0.25em;
 }
-
-#firstName,
-#lastName,
-#address {
-  align-self: center;
-  margin: 1em;
-}
-
-label[for="firstName"],
-label[for="lastName"],
-label[for="address"] {
-  justify-self: end;
-  align-self: center;
-  margin: 1em;
-}
-
 .user-buttons {
   grid-area: buttons;
   display: flex;
+  align-self: center;
   justify-content: space-around;
-  align-items: center;
 }
